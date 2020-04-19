@@ -1,6 +1,6 @@
 # Overview
 
-The code in the folder "[Article code](./Article%20code)" and in the folder "[Supplementary notes code](./Supplementary%20notes%20code)" allows one to reproduce the quantitative results reported in the manuscript. We also provide example data to demo the code. The figure below shows how the code is structured.
+The code in the folder "[Article code](./Article%20code)" and in the folder "[Supplementary information code](./Supplementary%20information%20code)" allows one to reproduce the quantitative results reported in the manuscript. We also provide example data to demo the code. The figure below shows how the code is structured.
 
 <div align="center">
 <img src="Overview.jpg" width="900px">
@@ -11,15 +11,15 @@ The code in the folder "[Article code](./Article%20code)" and in the folder "[Su
 * [Article code](./Article%20code)  
   This folder holds scripts for reproducing the quantitative results reported in the *Article* manuscript. After running a script, you will get a son folder "output" inside this folder "[Article code](./Article%20code)". Results will be saved in the son folder "output". For your information, expected results are also available in another son folder "[Expected output](./Article%20code/Expected%20output)". Please find out below [how to use](#article-code).
 
-* [Supplementary notes code](./Supplementary%20notes%20code)  
-  This folder holds scripts for reproducing the quantitative results reported in the *Supplementary Notes* manuscript. After running a script, you will get a son folder "output" inside this folder "[Supplementary notes code](./Supplementary%20notes%20code)". Results will be saved in the son folder "output". For your information, expected results are also available in another son folder "[Expected output](./Supplementary%20notes%20code/Expected%20output)". Please find out below [how to use](#supplementary-notes-code).
+* [Supplementary information code](./Supplementary%20information%20code)  
+  This folder holds scripts for reproducing the quantitative results reported in the *Supplementary Information* manuscript. After running a script, you will get a son folder "output" inside this folder "[Supplementary information code](./Supplementary%20information%20code)". Results will be saved in the son folder "output". For your information, expected results are also available in another son folder "[Expected output](./Supplementary%20information%20code/Expected%20output)". Please find out below [how to use](#supplementary-information-code).
 
 * [Demo](./Demo)  
   This fold contains a small example data to test the code. After running a script, you will get a son folder "output" inside this folder "[Demo](./Demo)". Results will be saved in the son folder "output". For your information, expected results are also available in another son folder "[Expected output](./Demo/Expected%20output)". Please find out below [how to use](#demo).
 
 
 * [data](./data)  
-  This folder already contains in two separate son folders all the empirical data adopted in our study. Additionally, we suggest you download the following zip file named *downloaded data files.zip*, unzip it, and put it inside this folder "[data](./data)". Note that: this zip file contains important process data of our study, which were generated based on the adopted empirical data and were used in many computational experiments; for instance, various null configuration models for the empirical network. This zip file is available at: https://figshare.com/s/2167acb4e1f0106ccf3d. Therefore, before you start reproducing the results, we expect that you should have inside this folder "[data](./data)" three son folders: "[GLSN data](./data/GLSN%20data)", "[Other data](./data/Other%20data)", and "downloaded data files".
+  This folder already contains in two separate son folders all the empirical data adopted in our study. Additionally, we suggest you download (in this link: https://doi.org/10.6084/m9.figshare.12136236.v1) the following 8 zip files named: "1000 Community divisions.7z", "1000 equivalent random networks.7z", "note5.7z", "note9.7z", "note10_1.7z", "note10_2.7z", "note10_3.7z", "note11.7z". Then please unzip them and put them inside this folder "[data](./data)". Note: these zip files contain important process data of our study, which were generated based on the adopted empirical data and were used in many computational experiments; for instance, various null configuration models for the empirical network. Therefore, before you start reproducing the results, we expect that you should have inside this folder "[data](./data)" 10 son folders: "[GLSN data](./data/GLSN%20data)", "[Other data](./data/Other%20data)", "1000 Community divisions", "1000 equivalent random networks", "note5", "note9", "note10_1", "note10_2", "note10_3", "note11".
 
 * [matlab code](./matlab%20code)  
   This folder contains the matlab code we had implemented for the present study. For detailed instructions, please find inside this folder a file named [README.md](./matlab%20code/README.md).
@@ -82,7 +82,7 @@ pip3 install pandas==0.23.4
 
 # Demo
 
-The folder "[Demo](./Demo)" contains a script [`run.py`](./Demo/run.py). Note that: this script is for testing the code, and one should not try to interpret the results generated during the test process.
+The folder "[Demo](./Demo)" contains a script [`run.py`](./Demo/run.py). Note: this script is for testing the code, and one should not try to interpret the results generated during the test process.
 
 Demo data description: 
 
@@ -117,23 +117,20 @@ python run.py <parts_of_the_manuscript>  # This will reproduce the quantitative 
 Positional argument:
 
 + *parts_of_the_manuscript*: select the manuscript parts whose results you want to reproduce; multiple parts can be selected at a same time, and by default all parts are selected. Parts are listed as follows:
-     - Degree_centrality_distribution_and_assortativity: for reproducing the results in the subsection titled "Degree centrality distribution and assortativity".
-     - Economic_small_world_ness: for reproducing the results in the subsection titled "Economic small-world-ness".
-     - Multiscale_modularity_and_hubs_diversity: for reproducing the results in the section titled "Multiscale modularity and hubs diversity".
-     - Defining_structural_core: for reproducing the results in the subsection titled "Defining structural core".
-     - Topological_centrality_of_the_structural_core: for reproducing the results in the subsection titled "Topological centrality of the structural core".
-     - Significant_importance_of_core_connections: for reproducing the results in the subsection titled "Significant importance of core connections in supporting long-distance maritime transportation".
-     - Structural_embeddedness_and_economic_performance_of_world_ports: for reproducing the results in the section titled "Structural embeddedness and economic performance of world ports".
-     - Structural_core_and_the_global_trade: for reproducing the results in the section titled "Structural core and the global trade".
+     - Basic_topological_properties_and_economic_small_world_ness: for reproducing the results in the subsection titled "Basic topological properties and economic small-world-ness".
+     - Multiscale_modularity_and_hubs_diversity: for reproducing the results in the subsection titled "Multiscale modularity and hubs diversity".
+     - Gateway_hub_structural_core: for reproducing the results in the subsection titled "Gateway-hub structural core".
+     - Structural_embeddedness_and_economic_performance_of_ports: for reproducing the results in the subsection titled "Structural embeddedness and economic performance of ports".
+     - Structural_core_and_international_trade: for reproducing the results in the subsection titled "Structural core and international trade".
 
 Possible usage, for example:
 
 ```
 python run.py  # To reproduce the quantitative results reported in the main article
 
-python run.py Degree_centrality_distribution_and_assortativity  # To reproduce the quantitative results reported in the subsection titled "Degree centrality distribution and assortativity"
+python run.py Basic_topological_properties_and_economic_small_world_ness  # To reproduce the quantitative results reported in the subsection titled "Basic topological properties and economic small-world-ness"
 
-python run.py Degree_centrality_distribution_and_assortativity Defining_structural_core  # To reproduce the quantitative results reported in the subsection titled "Degree centrality distribution and assortativity" and in the subsection titled "Defining structural core".
+python run.py Basic_topological_properties_and_economic_small_world_ness Multiscale_modularity_and_hubs_diversity  # To reproduce the quantitative results reported in the subsection titled "Basic topological properties and economic small-world-ness" and in the subsection titled "Multiscale modularity and hubs diversity".
 ```
 
 Note: After performing the code, the results will be saved in a folder labeled with the corresponding *parts_of_the_manuscript*, inside the folder "output" in the folder "[Article code](./Article%20code)".
@@ -144,16 +141,16 @@ Note: After performing the code, the results will be saved in a folder labeled w
 <img src="Code performance (Article).jpg" width="750px">
 </div>
 
-**Warning:** It will take approximately 11 hours to reproduce the quantitative results reported in the main article manuscript.
+**Warning:** It will take approximately 3 hours to reproduce the quantitative results reported in the main article manuscript.
 
-## Supplementary notes code
+## Supplementary information code
 
-**Note**: Before you run the code, please download (via the link: https://figshare.com/s/2167acb4e1f0106ccf3d) the *downloaded data files.zip*, unzip it and put it inside the folder "[data](./data)". Therefore, we expect that you should have inside this folder "[data](./data)" three son folders: "[GLSN data](./data/GLSN%20data)", "[Other data](./data/Other%20data)", and "downloaded data files".
+**Note**: Before you run the code, please download (via the link: https://doi.org/10.6084/m9.figshare.12136236.v1) the follwing 8 zip files named: "1000 Community divisions.7z", "1000 equivalent random networks.7z", "note5.7z", "note9.7z", "note10_1.7z", "note10_2.7z", "note10_3.7z", "note11.7z". Then please unzip them and put them inside the folder "[data](./data)". Therefore, we expect that you should have inside this folder "[data](./data)" 10 son folders: "[GLSN data](./data/GLSN%20data)", "[Other data](./data/Other%20data)", "1000 Community divisions", "1000 equivalent random networks", "note5", "note9", "note10_1", "note10_2", "note10_3", "note11".
 
-The folder "[Supplementary notes code](./Supplementary%20notes%20code)" contains a script [`run.py`](./Supplementary%20notes%20code/run.py). To reproduce the quantitative results reported in the *Supplementary Notes* manuscript, please open the *cmd* window in the root folder, then use:
+The folder "[Supplementary information code](./Supplementary%20information%20code)" contains a script [`run.py`](./Supplementary%20information%20code/run.py). To reproduce the quantitative results reported in the *Supplementary Information* manuscript, please open the *cmd* window in the root folder, then use:
 
 ```
-cd Supplementary notes code
+cd Supplementary information code
 
 python run.py <iters> <parts_of_the_manuscript>  # This will reproduce the quantitative results reported in the selected parts_of_the_manuscript, based on the number of iters of the related experiments (if applicable).
 ```
@@ -164,43 +161,45 @@ Positional arguments:
 
 + *parts_of_the_manuscript*: select the manuscript parts whose results you want to reproduce; multiple parts can be selected at a same time, and by default all parts are selected. Parts are listed as follows:
 
-     - note2: for reproducing the results in the section titled "Supplementary note 2: Statistical significance of the economic small-world-ness of the GLSN".
-     - note3: for reproducing the results in the section titled "Supplementary note 3: Geographical length of inter-port links in the GLSN".
-     - note4: for reproducing the results in the section titled "Supplementary note 4: Gateway-hub-based structural core organization of the GLSN at modular level".
+     - Supplementary_Fig_2: for reproducing the result file titled "Supplementary Fig. 2 Proportional distribution of intra- and inter- module links in different range of geographical length".
+     - Supplementary_Fig_3: for reproducing the result file titled "Supplementary Fig. 3 Statistical significance of the structural core in the real GLSN of 2015".
+     - Supplementary_Fig_6: for reproducing the result file titled "Supplementary Fig. 6 Rich-club coefficients of world ports".
+     - Supplementary_Fig_7: for reproducing the result file titled "Supplementary Fig. 7 Overlap between the rich club and the structural core of the GLSN".
+     - note1: for reproducing the results in the section titled "Supplementary note 1: Statistical significance of the economic small-world-ness of the GLSN".
      - note5: for reproducing the results in the section titled "Supplementary note 5: Robustness of empirical findings on the structural-core organization of the GLSN to the non-detrimental property of the Louvain algorithm in community division".
-     - note10: for reproducing the results in the section titled "Supplementary note 10: Rich-club coefficients of world ports".
-     - note11: for reproducing the results in the section titled "Supplementary note 11: Robustness of the structural-core organization of the GLSN across multiple datasets".
-     - note12_1: for reproducing the results in the subsection titled "(1) Constraints of the number of shipping routes".
-     - note12_2: for reproducing the results in the subsection titled "(2) Geographical constraints".
-     - note12_3: for reproducing the results in the subsection titled "(3) The constraints of the economy of liner shipping network".
-     - note13: for reproducing the results in the section titled "Supplementary note 13: Existence of a structural core of the GLSN is not the same as small-world distance scaling".
-     - note14: for reproducing the results in the section titled "Supplementary note 14: Significant importance of core connections in supporting long-distance maritime transportation; calculations are based on great-circle distance".
+     - note6: for reproducing the results in the section titled "Supplementary note 6: Gateway-hub structural core organization of the GLSN at modular level".
+     - note8: for reproducing the results in the section titled "Supplementary note 8: Significant importance of core connections in supporting long-distance maritime transportation; calculations are based on great-circle distance".
+     - note9: for reproducing the results in the section titled "Supplementary note 9: Robustness of the structural-core organization of the GLSN across multiple datasets".
+     - note10_1: for reproducing the results in the subsection titled "(1) Constraints of the number of shipping routes".
+     - note10_2: for reproducing the results in the subsection titled "(2) Geographical constraints".
+     - note10_3: for reproducing the results in the subsection titled "(3) The constraints of the economy of liner shipping network".
+     - note11: for reproducing the results in the section titled "Supplementary note 11: Existence of a structural core of the GLSN is not the same as small-world distance scaling".
 
 Possible usage, for example:
 
 ```
 python run.py 10 note5  # To reproduce the results reported in the Supplementary note 5, based on 10 iterations of the corresponding experiments.
 
-python run.py 10 note5 note2  # To reproduce the results reported in the Supplementary note 2 and Supplementary note 5, based on 10 iterations of the corresponding experiments.
+python run.py 10 note5 note6  # To reproduce the results reported in the Supplementary note 5 and Supplementary note 6, based on 10 iterations of the corresponding experiments.
 
 python run.py note11  # To reproduce the results reported in the Supplementary note 11, based on 1000 iterations of the corresponding experiments.
 
-python run.py 10  # To reproduce the results reported in the supplementary notes manuscript, based on 10 iterations of the corresponding experiments.
+python run.py 10  # To reproduce the results reported in the supplementary information manuscript, based on 10 iterations of the corresponding experiments.
 ```
 
-After performing the code, the results will be saved in a folder labeled with the corresponding *parts_of_the_manuscript*, inside the folder "output" in the folder "[Supplementary notes code](./Supplementary%20notes%20code)".
+After performing the code, the results will be saved in a folder labeled with the corresponding *parts_of_the_manuscript*, inside the folder "output" in the folder "[Supplementary information code](./Supplementary%20information%20code)".
 
 ### Code performance
 
 <div align="center">
-<img src="Code performance (Supplementary notes).jpg" height="350px">
+<img src="Code performance (Supplementary information).jpg" height="350px">
 </div>
 
-**Warning:** It shall take approximately **12 days** to reproduce the quantitative results reported in the supplementary notes manuscript, if all computational experiments are conducted for 1000 iterations in a normal computer.
+**Warning:** It shall take approximately **13 days** to reproduce the quantitative results reported in the supplementary information manuscript, if all computational experiments are conducted for 1000 iterations in a normal computer.
 
 **Note:** 
 
-The code contains the python function <a href='https://docs.python.org/3.6/library/functions.html?highlight=round#round'>round()</a>. The behavior of round() for floats can be surprising: for example, round(2.675, 2) gives 2.67 instead of the expected 2.68. This is not a bug: it’s a result of the fact that most decimal fractions can’t be represented exactly as a float. See <a href='https://docs.python.org/3.6/tutorial/floatingpoint.html#tut-fp-issues'>Floating Point Arithmetic: Issues and Limitations</a> for more information.
+The code contains the python function round(): https://docs.python.org/3.6/library/functions.html?highlight=round#round. The behavior of round() for floats can be surprising: for example, round(2.675, 2) gives 2.67 instead of the expected 2.68. This is not a bug: it’s a result of the fact that most decimal fractions can’t be represented exactly as a float. See Floating Point Arithmetic: Issues and Limitations: https://docs.python.org/3.6/tutorial/floatingpoint.html#tut-fp-issues for more information.
 
 # Contact
 

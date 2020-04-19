@@ -11,40 +11,31 @@ import sys
 
 
 def main(parts_of_the_manuscript):
-    if 'Degree_centrality_distribution_and_assortativity' in parts_of_the_manuscript:
-        import Degree_centrality_distribution_and_assortativity
-        Degree_centrality_distribution_and_assortativity.startup()
-    if 'Economic_small_world_ness' in parts_of_the_manuscript:
-        import Economic_small_world_ness
-        Economic_small_world_ness.startup()
+    if 'Basic_topological_properties_and_economic_small_world_ness' in parts_of_the_manuscript:
+        import Basic_topological_properties_and_economic_small_world_ness
+        Basic_topological_properties_and_economic_small_world_ness.startup()
     if 'Multiscale_modularity_and_hubs_diversity' in parts_of_the_manuscript:
         import Multiscale_modularity_and_hubs_diversity
         Multiscale_modularity_and_hubs_diversity.startup()
-    if 'Defining_structural_core' in parts_of_the_manuscript:
-        import Defining_structural_core
-        Defining_structural_core.startup()
-    if 'Topological_centrality_of_the_structural_core' in parts_of_the_manuscript:
-        import Topological_centrality_of_the_structural_core
-        Topological_centrality_of_the_structural_core.startup()
-    if 'Significant_importance_of_core_connections' in parts_of_the_manuscript:
-        import Significant_importance_of_core_connections
-        Significant_importance_of_core_connections.startup()
-    if 'Structural_embeddedness_and_economic_performance_of_world_ports' in parts_of_the_manuscript:
-        import Structural_embeddedness_and_economic_performance_of_world_ports
-        Structural_embeddedness_and_economic_performance_of_world_ports.startup()
-    if 'Structural_core_and_the_global_trade' in parts_of_the_manuscript:
-        import Structural_core_and_the_global_trade
-        Structural_core_and_the_global_trade.startup()
+    if 'Gateway_hub_structural_core' in parts_of_the_manuscript:
+        import Gateway_hub_structural_core
+        Gateway_hub_structural_core.startup()
+    if 'Structural_embeddedness_and_economic_performance_of_ports' in parts_of_the_manuscript:
+        import Structural_embeddedness_and_economic_performance_of_ports
+        Structural_embeddedness_and_economic_performance_of_ports.startup()
+    if 'Structural_core_and_international_trade' in parts_of_the_manuscript:
+        import Structural_core_and_international_trade
+        Structural_core_and_international_trade.startup()
 
 
 if __name__ == "__main__":
     import time
 
-    all_args = ['Degree_centrality_distribution_and_assortativity', 'Economic_small_world_ness', 'Multiscale_modularity_and_hubs_diversity',
-                'Defining_structural_core', 'Topological_centrality_of_the_structural_core',
-                'Significant_importance_of_core_connections',
-                'Structural_embeddedness_and_economic_performance_of_world_ports',
-                'Structural_core_and_the_global_trade']
+    all_args = ['Basic_topological_properties_and_economic_small_world_ness',
+                'Multiscale_modularity_and_hubs_diversity',
+                'Gateway_hub_structural_core',
+                'Structural_embeddedness_and_economic_performance_of_ports',
+                'Structural_core_and_international_trade']
 
     parts_of_the_manuscript = []
     if len(sys.argv) == 1:

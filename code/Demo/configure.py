@@ -14,7 +14,6 @@ import shutil
 import time
 import random
 import itertools
-from src import plfit
 from src import pltstyle
 import pandas as pd
 import numpy as np
@@ -25,14 +24,12 @@ import matplotlib.pyplot as plt
 from matplotlib.ticker import MultipleLocator
 import community
 from sklearn.metrics import r2_score
-import seaborn as sns
 
 
 YEAR = '2015'
 DATASET = 'All'
 METHOD = 'P'
 SAVE_RESULT = True
-iters = 1000
 dis_col = 'Distance(SR,unit:km)'
 np.seterr(divide='ignore', invalid='ignore')
 warnings.filterwarnings("ignore")

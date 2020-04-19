@@ -46,7 +46,7 @@ def edge_plot():
             pass
         else:
             os.makedirs(save_path)
-        filename = 'Fig. 3 Multiscale modular communities in the GLSN (a) Left.xlsx'
+        filename = 'Fig. 3 Multiscale modular communities in the GLSN (a).xlsx'
         df_res.to_excel(save_path + '/' + filename, index=True, na_rep='--')
         print('The result file "{}" saved at: "{}"'.format(filename, save_path))
         print()
@@ -84,29 +84,13 @@ def edge_plot():
             pass
         else:
             os.makedirs(save_path)
-        filename = 'Fig. 3 Multiscale modular communities in the GLSN (b) Right.png'
+        filename = 'Fig. 3 Multiscale modular communities in the GLSN (e).png'
         plt.savefig(save_path + '/' + filename, bbox_inches='tight')
         print('The result file "{}" saved at: "{}"'.format(filename, save_path))
         print()
     else:
         plt.show()
     plt.close('all')
-
-    Edges['source_comm'] = Edges['source'].apply(dict_community.get)
-    Edges['target_comm'] = Edges['target'].apply(dict_community.get)
-    Edges['Edge'] = Edges['source'].astype(str) + '--' + Edges['target'].astype(str)
-    df_dis = pd.read_csv('../data/other data/Distance_SR_GC_2015.csv')
-    dict_dis = dict(zip(df_dis['Edge'], df_dis[dis_col]))
-    Edges[dis_col] = Edges['Edge'].apply(dict_dis.get)
-    lone_edges = Edges[Edges[dis_col] >= 10000]
-    inter_edge = lone_edges[lone_edges['source_comm'] != lone_edges['target_comm']]
-    dis_perc = len(inter_edge) / len(lone_edges) * 100
-    print('The in-text result:')
-    print()
-    print('"When investigating the geographical distance long-range inter-port shipping connections are found to be '
-          'few, and amongst them the majority are inter-community connections, for instance, {:.1f} percent of '
-          'inter-port connections longer than 10,000km are inter-community links."'.format(dis_perc))
-    print()
 
 
 def cal_zscore(data):
@@ -177,40 +161,6 @@ def hubs_diversity():
     df_bzp_sub_all.rename(columns={'B': 'B_sub', 'Z': 'Z_sub', 'P': 'P_sub'}, inplace=True)
     df_nodes = pd.merge(df_bzp, df_bzp_sub_all, on='id', suffixes=('', '_sub'))
 
-    df_b = df_nodes[(df_nodes['B'] >= 1.5)]
-    df_z = df_nodes[(df_nodes['Z'] >= 1.5)]
-    df_p = df_nodes[(df_nodes['P'] >= 0.7)]
-
-    b = len(df_b) / len(df_nodes) * 100
-    z = len(df_z) / len(df_nodes) * 100
-    p = len(df_p) / len(df_nodes) * 100
-    non_hub = len(df_nodes[(df_nodes['B'] < 1.5) & (df_nodes['Z'] < 1.5) & (df_nodes['P'] < 0.7)]) / len(df_nodes) * 100
-    print('The in-text result:')
-    print()
-    print('"In the GLSN there exist only a few hub ports (Fig. 5): the fractions of provincial hubs, gateway hubs and '
-          'connector hubs are {:.1f}%, {:.1f}% and {:.1f}% respectively, with {:.1f}% of the world ports being '
-          'non-hubs."'.format(z, b, p, non_hub))
-    print()
-
-    b_zp = len(df_b[(df_b['Z'] >= 1.5) | (df_b['P'] >= 0.7)]) / len(df_b) * 100
-    b_z = len(df_b[(df_b['Z'] >= 1.5) & (df_b['P'] < 0.7)]) / len(df_b) * 100
-    b_p = len(df_b[(df_b['Z'] < 1.5) & (df_b['P'] >= 0.7)]) / len(df_b) * 100
-    b_zp1 = len(df_b[(df_b['Z'] >= 1.5) & (df_b['P'] >= 0.7)]) / len(df_b) * 100
-
-    print('The in-text result:')
-    print()
-    print('"As indicated in Fig. 5, {:.1f}% of those gateway hubs also play at least another hub role in the GLNS: '
-          '{:.1f}% of them are provincial hubs within their individual communities, {:.1f}% connector hubs, and the '
-          'rest {:.1f}% both provincial hubs and connector hubs."'.format(b_zp, b_z, b_p, b_zp1))
-    print()
-    z_bp = len(df_z[(df_z['B'] < 1.5) & (df_z['P'] < 0.7)]) / len(df_z) * 100
-    p_zb = len(df_p[(df_p['B'] < 1.5) & (df_p['Z'] < 1.5)]) / len(df_p) * 100
-    print('The in-text result:')
-    print()
-    print('"When examining those provincial hubs and connector hubs, however, {:.1f}% of the former and {:.1f}% of the '
-          'latter turned out to be without any other hub roles (Fig. 5)."'.format(z_bp, p_zb))
-    print()
-
     return df_nodes
 
 
@@ -220,7 +170,7 @@ def plot_role(data, param, threshold):
     ax1 = fig.add_subplot(121)
     data_b = data.sort_values(param, ascending=False)
     ax1.plot(range(1, len(data)+1), data_b[param], 'bo', markersize=1.5)
-    ax1.set_xlim([-5, 980])
+    ax1.set_xlim([-5, 1000])
 
     anno_dict = dict(arrowstyle="-", linestyle=pltstyle.get_linestyles('loosely dashed'),
                       color='r', linewidth=3)
@@ -270,7 +220,7 @@ def plot_role(data, param, threshold):
             pass
         else:
             os.makedirs(save_path)
-        filename = 'Fig. 4 Results for ports...(a) ' + param + '.png'
+        filename = "Fig. 4 Ports' outside-module degree... " + param + ".png"
         plt.savefig(save_path + '/' + filename, bbox_inches='tight')
         print('The result file "{}" saved at: "{}"'.format(filename, save_path))
         print()
@@ -279,86 +229,12 @@ def plot_role(data, param, threshold):
     plt.close('all')
 
 
-def pr_plot(data):
-    params = [['Z', 'B'], ['P', 'B'], ['P', 'Z']]
-    thresholds = [[1.5, 1.5], [0.7, 1.5], [0.7, 1.5]]
-    for param, threshold in zip(params, thresholds):
-        param1 = param[0]
-        param2 = param[1]
-        threshold1 = threshold[0]
-        threshold2 = threshold[1]
-        fig = plt.figure(num=1, figsize=(5, 5))
-        ax = fig.add_subplot(111)
-
-        x = data[param1]
-        y = data[param2]
-
-        ax.plot(x, y, 'o', c='gray', alpha=0.9, mec='k', mew=1)
-        ax.set_xlim([np.floor(data[param1].min()) - 0.03, np.ceil(data[param1].max())])
-        ax.set_ylim([np.floor(data[param2].min()) - 0.015, np.ceil(data[param2].max())])
-
-        anno_dict = dict(arrowstyle="-", linestyle=pltstyle.get_linestyles('loosely dashed'),
-                         color='r', linewidth=3)
-
-        if param1 == 'Z':
-            ax.set_xlabel(r'Inside-module degree, ${}$'.format(param1), fontsize=20)
-            ax.xaxis.set_major_locator(MultipleLocator(1))
-            ax.xaxis.set_minor_locator(MultipleLocator(0.25))
-            ax.yaxis.set_major_locator(MultipleLocator(1))
-            ax.yaxis.set_minor_locator(MultipleLocator(0.25))
-        if param1 == 'P':
-            ax.set_xlim(ax.get_xlim()[0], 0.85)
-            ax.set_xlabel(r'Participation coefficient, ${}$'.format(param1), fontsize=20)
-            ax.xaxis.set_major_locator(MultipleLocator(0.2))
-            ax.xaxis.set_minor_locator(MultipleLocator(0.05))
-            ax.yaxis.set_major_locator(MultipleLocator(1))
-            ax.yaxis.set_minor_locator(MultipleLocator(0.25))
-        if param2 == 'B':
-            ax.set_ylabel(r'Outside-module degree, ${}$'.format(param2), fontsize=20)
-        if param2 == 'Z':
-            ax.set_ylabel(r'Inside-module degree, ${}$'.format(param2), fontsize=20)
-
-        ax.annotate("", xy=(threshold1, ax.get_ylim()[0]), xytext=(threshold1, ax.get_ylim()[1]),
-                    arrowprops=anno_dict)
-        ax.annotate("", xy=(ax.get_xlim()[0], threshold2), xytext=(ax.get_xlim()[1], threshold2),
-                    arrowprops=anno_dict)
-
-        f1 = np.polyfit(x, y, 1)
-        p1 = np.poly1d(f1)
-        yvals = p1(x)
-        r2 = round(r2_score(y, yvals), 3)
-        ax.plot(x, yvals, 'b-', linewidth=3.5)
-        corr = round(stats.pearsonr(y, yvals)[0], 3)
-        p = round(stats.pearsonr(y, yvals)[1], 4)
-
-        left = ax.get_xlim()[0] + 0.065
-        bottom = ax.get_ylim()[1] - 2.5
-        ax.text(left, bottom, r'$R^2={}$'.format(r2) + '\n' + r'$corr= {}$'.format(corr) + '\n' +
-                r'$p-value={}$'.format(p),
-                fontsize=20)
-
-        pltstyle.axes_style(ax)
-        if SAVE_RESULT:
-            save_path = os.path.join('output', 'Multiscale_modularity_and_hubs_diversity')
-            if os.path.exists(save_path):
-                pass
-            else:
-                os.makedirs(save_path)
-            filename = 'Fig. 4 Results for ports...(b) ' + param1 + param2 + '.png'
-            plt.savefig(save_path + '/' + filename, bbox_inches='tight')
-            print('The result file "{}" saved at: "{}"'.format(filename, save_path))
-            print()
-        else:
-            plt.show()
-        plt.close('all')
-
-
 def startup():
     print()
     print('*********************************')
     print("Location in the manuscript text: ")
-    print('Subsection titled "Multiscale modular structure"')
-    print('Section titled "Multiscale modularity and hubs diversity"')
+    print('Subsection titled "Multiscale modularity and hubs diversity"')
+    print('Section titled "Results"')
     print('*********************************')
     print()
     print('-----------------------------------------------------------------------------')
@@ -366,20 +242,8 @@ def startup():
     print()
     edge_plot()
 
-    print()
-    print('*********************************')
-    print("Location in the manuscript text: ")
-    print('Subsection titled "Hubs diversity"')
-    print('Section titled "Multiscale modularity and hubs diversity"')
-    print('*********************************')
-    print()
-    print('-----------------------------------------------------------------------------')
-    print('Output:')
-    print()
     df_nodes = hubs_diversity()
     params = ['P', 'B', 'Z']
     thresholds = [0.7, 1.5, 1.5]
     for param, threshold in zip(params, thresholds):
         plot_role(df_nodes, param, threshold)
-
-    pr_plot(df_nodes)
