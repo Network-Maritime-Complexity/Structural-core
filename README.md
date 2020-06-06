@@ -9,7 +9,7 @@ _Mengqiao Xu, Qian Pan, Alessandro Muscoloni, Haoxiang Xia, Carlo Vittorio Canni
 Around 80% of global trade by volume is transported by sea, and thus the maritime transportation system is fundamental to the world economy. To better exploit new international shipping routes, we need to understand the current ones and their complex systems association with international trade. We investigate the structure of the global liner shipping network (GLSN), finding it is an economic small-world network with a trade-off between high transportation efficiency and low wiring cost. To enhance understanding of this trade-off, we examine the modular segregation of the GLSN; we study provincial-, connector-hub ports and propose the definition of gateway-hub ports, using three respective structural measures. The gateway-hub structural-core organization seems a salient property of the GLSN, which proves importantly associated to network integration and function in realizing the cargo transportation of international trade. This finding offers new insights into the GLSN’s structural organization complexity and its relevance to international trade.
 
 ## Reference
-Xu et al. (in review) Modular gateway-ness connectivity and structural core organization in maritime network science
+Xu, M., Pan, Q., Muscoloni, A. et al. Modular gateway-ness connectivity and structural core organization in maritime network science. Nat Commun 11, 2849 (2020). https://doi.org/10.1038/s41467-020-16619-5.
 
 ## Arxiv
 **arXiv link:** https://arxiv.org/abs/2003.13099
